@@ -4,6 +4,7 @@ import SignInScreen from "./components/SSO/SignInScreen";
 import "./css/App.css";
 import ChargingStation from "./pages/SMSflow/ChargingStation";
 import { useState } from "react";
+import VehicleEntry from "./pages/SMSflow/VehicleEntry";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -25,7 +26,7 @@ function App() {
         width: "100%",
       }}
     >
-      <Header onLogout={handleLogout} />
+      {/* <Header onLogout={handleLogout} />
       <Box
         component="main"
         sx={{
@@ -35,6 +36,15 @@ function App() {
         }}
       >
         <ChargingStation />
+      </Box> */}
+
+       <Box
+        component="main"
+        sx={{
+          flexGrow: 1,
+        }}
+      >
+        <VehicleEntry />
       </Box>
     </Box>
   );
