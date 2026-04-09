@@ -10,6 +10,11 @@ const VehicleEntry = () => {
 
             {/* ================= HEADER ================= */}
             <Header />
+{/* 
+            <button className="bg-orange-500 hover:bg-orange-600 px-5 py-2 rounded-lg text-sm font-medium shadow text-white">
+              Add Vehicle
+            </button> */}
+    
 
             {/* ================= FLOATING TABLE ================= */}
             <div className="px-6 -mt-20">

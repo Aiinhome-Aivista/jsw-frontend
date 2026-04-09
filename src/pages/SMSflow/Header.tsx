@@ -3,10 +3,13 @@ import { AppBar, Toolbar, Box, Typography, Avatar, Menu, MenuItem } from "@mui/m
 import { ChevronDown, LogOut } from "lucide-react";
 import JSLLogo from "../../assets/JSL-Black-1 1.png";
 import VectorHader from "../../assets/VectorHader.png";
+import { useAppContext } from "../../context/AppContext";
+import AddVehicleModal from "../../components/modals/AddVehicleModal";
 
 const Header = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+  const { setShowModal } = useAppContext();
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -119,7 +122,9 @@ const Header = () => {
               Vehicle Entry (Gate 2-Window 1)
             </Typography>
 
-            <button className="bg-orange-500 hover:bg-orange-600 px-5 py-2 rounded-lg text-sm font-medium shadow text-white">
+            <button
+              onClick={() => setShowModal(true)}
+              className="bg-orange-500 hover:bg-orange-600 px-5 py-2 rounded-lg text-sm font-medium shadow text-white">
               Add Vehicle
             </button>
           </Box>
@@ -139,6 +144,7 @@ const Header = () => {
           Logout
         </MenuItem>
       </Menu>
+      <AddVehicleModal />
     </div>
   );
 };
