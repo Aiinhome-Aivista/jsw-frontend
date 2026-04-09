@@ -1,0 +1,98 @@
+.stepper-outer-container {
+  display: flex;
+  padding: 20px 0; /* Increased padding to allow the overflow to be visible */
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+.stepper-track {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #e5e7eb; /* The light grey border from Figma */
+  border-radius: 8px;
+  height: 48px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.step-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 24px;
+  height: 100%;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  color: #4b5563;
+  position: relative;
+  z-index: 1;
+}
+
+/* THE OVERFLOWING ACTIVE STATE */
+.step-item.active {
+  background: #d98e32;
+  color: #ffffff !important;
+  /* This height makes it pop outside the 48px track border */
+  height: 60px;
+  border-radius: 8px;
+  /* z-index: 10 ensures it stays on top of the track border */
+  z-index: 10;
+  /* Add a shadow to create that depth against the border */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  /* Use transform to perfectly center the overflow vertically */
+  transform: translateY(0);
+  display: flex;
+  align-items: center;
+}
+.step-item.active:first-child {
+  margin-left: -1px;
+}
+.step-indicator {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  border-radius: 50%;
+  border: 1.5px solid #d98e2b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  box-sizing: border-box;
+}
+
+.step-indicator.completed {
+  background-color: #10b981;
+  border-color: #10b981;
+  color: white;
+}
+
+.step-item.active .step-indicator {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+.step-item.completed .step-label {
+  color: #1a1a1a;
+}
+
+.step-label {
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* DASHED DIVIDERS */
+.step-divider {
+  width: 1px;
+  height: 24px;
+  border-left: 1px dashed #d1d5db;
+  flex-shrink: 0;
+  z-index: 0;
+}
+
+.step-divider.hidden {
+  visibility: hidden; /* Use visibility instead of opacity to maintain spacing */
+}

@@ -1,0 +1,33 @@
+/* src/App.css */
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f4f7f9; /* The light grey background for the lower half */
+  font-family: Segoe UI;
+  overflow-x: hidden;
+}
+
+/* Hide scrollbar but keep functionality */
+html {
+  overflow-y: scroll;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+* {
+  box-sizing: border-box;
+}
