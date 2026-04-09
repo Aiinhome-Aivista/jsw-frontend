@@ -45,7 +45,7 @@ const AddVehicleModal = () => {
             value={vehicleNumber}
             onChange={(e) => setVehicleNumber(e.target.value)}
             placeholder="HR34J3490"
-            className="w-full h-[56px] px-4 text-lg rounded-lg border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-orange-400"
+            className="w-full h-[56px] px-4 text-lg text-gray-700 rounded-lg border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-orange-400"
           />
         </div>
 
