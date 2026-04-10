@@ -1,12 +1,14 @@
 const vehicleEntryData = [
     {
         vehicleNumber: "HR23456787",
-        leciNumber: "1000001",
-        gateEntryNo: "5001234567",
-        poNumber: "#5643",
-        time: "14:10:30",
-        date: "2nd Feb, 2026",
-        status: "Approved",
+        leciNumber: "--",
+        gateEntryNo: "--",
+        poNumber: "--",
+        time: "--",
+        date: "--",
+        status: "Fill-Slip",
+        isNew: true,
+
     },
     {
         vehicleNumber: "HR98765432",
