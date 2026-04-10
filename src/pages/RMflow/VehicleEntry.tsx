@@ -1,7 +1,7 @@
 import { useAppContext } from "../../context/AppContext";
 import Header from "./Header";
-import AddVehicleModal from "../../components/modals/AddVehicleModal";
-import VehicleTable from "../SMSflow/VehicleTable";
+import AddVehicleModal from "../../components/modals/RM/AddVehicleModal";
+import VehicleTable from "./VehicleTable";
 // MUI
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
