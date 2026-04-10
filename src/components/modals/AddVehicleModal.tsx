@@ -1,4 +1,7 @@
 import { useAppContext } from "../../context/AppContext";
+import TextField from "@mui/material/TextField";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
 
 const AddVehicleModal = () => {
   const {
@@ -12,42 +15,69 @@ const AddVehicleModal = () => {
   if (!showModal) return null;
 
   return (
-    <div
-      className="fixed inset-0 bg-black/70 flex items-center justify-center z-50"
-      onClick={() => setShowModal(false)}
-    >
-      <div
-        className="bg-[#f8f9fb] w-[650px] rounded-2xl shadow-2xl px-10 py-8 relative"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <button
-          onClick={() => setShowModal(false)}
-          className="absolute top-6 right-6 text-gray-500 hover:text-black text-2xl"
-        >
-          ✕
-        </button>
+    <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+      
+      <div className="bg-white w-[420px] rounded-xl shadow-xl p-5">
 
-        <h2 className="text-3xl font-semibold text-black mb-8">
-          Add a Vehicle
-        </h2>
+        {/* HEADER */}
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-[16px] font-semibold text-gray-800">
+            Add a Vehicle
+          </h2>
 
-        <div className="mb-10">
-          <label className="block text-sm text-gray-500 mb-2">
-            Vehicle Number
-          </label>
+          <IconButton size="small" onClick={() => setShowModal(false)}>
+            {/*  Close Icon Color */}
+            <CloseIcon
+              fontSize="small"
+              sx={{ color: "rgba(0, 0, 0, 0.23)" }}
+            />
+          </IconButton>
+        </div>
 
-          <input
-            type="text"
+        {/* INPUT */}
+        <div className="mb-6">
+          <TextField
+            fullWidth
+            label="Vehicle Number"
+            variant="outlined"
+            size="small"
             value={vehicleNumber}
             onChange={(e) => setVehicleNumber(e.target.value)}
-            className="w-full h-[56px] px-4 text-lg text-gray-700 rounded-lg border border-gray-300"
+            sx={{
+              //  LABEL COLOR
+              "& .MuiInputLabel-root": {
+                color: "rgba(0, 0, 0, 0.23)",
+              },
+              "& .MuiInputLabel-root.Mui-focused": {
+                color: "rgba(0, 0, 0, 0.23)",
+              },
+
+              //  BORDER COLOR
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "rgba(0, 0, 0, 0.23)",
+                },
+                "&:hover fieldset": {
+                  borderColor: "rgba(0, 0, 0, 0.23)",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "rgba(0, 0, 0, 0.23)",
+                },
+              },
+
+              //  INPUT TEXT COLOR
+              "& .MuiInputBase-input": {
+                color: "#111", // keep text readable
+              },
+            }}
           />
         </div>
 
+        {/* BUTTON */}
         <div className="flex justify-end">
           <button
             onClick={addVehicle}
-            className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-xl"
+            className="bg-orange-500 hover:bg-orange-600 text-white px-5 py-2 rounded-md text-sm"
           >
             Add
           </button>

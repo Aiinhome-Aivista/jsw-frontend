@@ -8,6 +8,7 @@ type Vehicle = {
   time: string;
   date: string;
   status: string;
+  isNew?: boolean; // ✅ added
 };
 
 type AppContextType = {
@@ -31,17 +32,18 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 
     const newVehicle: Vehicle = {
       vehicleNumber,
-      leciNumber: "LECI" + Math.floor(Math.random() * 1000),
-      gateEntryNo: Math.floor(Math.random() * 999999).toString(),
-      poNumber: "#PO" + Math.floor(Math.random() * 100),
-      time: new Date().toLocaleTimeString(),
-      date: new Date().toLocaleDateString(),
-      status: "Approved",
+      leciNumber: "--",
+      gateEntryNo: "--",
+      poNumber: "--",
+      time: "--",
+      date: "--",
+      status: "--", // ✅ new row status
+      isNew: true, // ✅ mark as new
     };
 
     setVehicles((prev) => [newVehicle, ...prev]);
     setVehicleNumber("");
-    setShowModal(false);
+    setShowModal(false);  
   };
 
   return (
