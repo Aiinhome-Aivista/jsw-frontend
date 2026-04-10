@@ -4,7 +4,7 @@ import SignInScreen from "./components/SSO/SignInScreen";
 import "./css/App.css";
 import ChargingStation from "./pages/SMSflow/ChargingStation";
 import { useState } from "react";
-import VehicleEntry from "./pages/SMSflow/VehicleEntry";
+import VehicleEntry from "./pages/RMflow/VehicleEntry";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
