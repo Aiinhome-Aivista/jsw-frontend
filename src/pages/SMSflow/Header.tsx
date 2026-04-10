@@ -4,10 +4,13 @@ import { ChevronDown, LogOut } from "lucide-react";
 import JSLLogo from "../../assets/JSL-Black-1 1.png";
 import VectorHader from "../../assets/VectorHader.png";
 import AddVehicleModal from "../../components/modals/AddVehicleModal";
+import RefreshIcon from "../../assets/refresh.png";
+import { useAppContext } from "../../context/AppContext";
 
 const Header = () => {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
+    const { setShowModal } = useAppContext();
 
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
@@ -28,7 +31,7 @@ const Header = () => {
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
             }}
-            className="h-[150px]"
+            className="h-[165px]"
         >
             <AppBar position="static" sx={{ background: "transparent", boxShadow: "none" }}>
                 <Toolbar
@@ -109,6 +112,28 @@ const Header = () => {
 
 
                 </Toolbar>
+                <Box sx={{ display: "flex", justifyContent: "space-between", px: 3, py: 0.5 }}>
+                    <div className="flex items-center gap-3">
+                        <Typography sx={{ color: "#fff", fontWeight: 600 }}>
+                            Vehicle Entry (Gate 2-Window 1)
+                        </Typography>
+
+                        {/* Refresh Button */}
+                        <img
+                            src={RefreshIcon}
+                            alt="refresh"
+                            className="w-5 h-5 cursor-pointer hover:rotate-180 transition-transform duration-300"
+                            onClick={() => window.location.reload()}
+                        />
+                    </div>
+
+                    <button
+                        onClick={() => setShowModal(true)}
+                        className="bg-orange-500 hover:bg-orange-600 px-5 py-2 rounded-lg text-sm text-white"
+                    >
+                        Add Vehicle
+                    </button>
+                </Box>
             </AppBar>
 
             {/* Dropdown */}
@@ -124,6 +149,7 @@ const Header = () => {
                     Logout
                 </MenuItem>
             </Menu>
+
             <AddVehicleModal />
         </div>
     );

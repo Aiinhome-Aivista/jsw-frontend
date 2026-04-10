@@ -10,7 +10,7 @@ const VehicleTable = () => {
     return (
         <div className="bg-white rounded-t-2xl shadow-xl overflow-hidden">
             <table className="w-full text-sm text-gray-800">
-                <thead className="bg-[#f1f3f5] text-gray-700 text-xs uppercase">
+                <thead className="bg-[#f1f3f5] text-gray-700 text-sm uppercase">
                     <tr>
                         <th className="px-6 py-4 text-left">Vehicle Number</th>
                         <th className="px-6 py-4 text-left">LECI Number</th>
@@ -52,11 +52,16 @@ const VehicleTable = () => {
                                     className="px-3 py-1 rounded-md text-xs"
                                     style={{
                                         backgroundColor: item.isNew
-                                            ? "rgba(59, 130, 246, 0.1)"
-                                            : "rgba(194, 65, 12, 0.1)",
+                                            ? "rgba(255, 237, 213, 1)"
+                                            : item.status === "Rejected"
+                                                ? "rgba(254, 226, 226, 1)"
+                                                : "rgba(209, 250, 229, 1)",
+
                                         color: item.isNew
-                                            ? "rgba(59, 130, 246, 1)"
-                                            : "rgba(194, 65, 12, 1)",
+                                            ? "rgba(194, 65, 12, 1)"
+                                            : item.status === "Rejected"
+                                                ? "rgba(185, 28, 28, 1)"
+                                                : "rgba(4, 120, 87, 1)",
                                     }}
                                 >
                                     {item.isNew ? "Unloading Slip Generated" : item.status}
