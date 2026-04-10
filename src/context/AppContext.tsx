@@ -1,17 +1,48 @@
 import React, { createContext, useContext, useState } from "react";
 
-interface AppContextType {
+type Vehicle = {
+  vehicleNumber: string;
+  leciNumber: string;
+  gateEntryNo: string;
+  poNumber: string;
+  time: string;
+  date: string;
+  status: string;
+};
+
+type AppContextType = {
   showModal: boolean;
   setShowModal: (val: boolean) => void;
   vehicleNumber: string;
   setVehicleNumber: (val: string) => void;
-}
+  vehicles: Vehicle[];
+  addVehicle: () => void;
+};
 
-const AppContext = createContext<AppContextType | null>(null);
+const AppContext = createContext<AppContextType | undefined>(undefined);
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [showModal, setShowModal] = useState(false);
   const [vehicleNumber, setVehicleNumber] = useState("");
+  const [vehicles, setVehicles] = useState<Vehicle[]>([]);
+
+  const addVehicle = () => {
+    if (!vehicleNumber.trim()) return;
+
+    const newVehicle: Vehicle = {
+      vehicleNumber,
+      leciNumber: "LECI" + Math.floor(Math.random() * 1000),
+      gateEntryNo: Math.floor(Math.random() * 999999).toString(),
+      poNumber: "#PO" + Math.floor(Math.random() * 100),
+      time: new Date().toLocaleTimeString(),
+      date: new Date().toLocaleDateString(),
+      status: "Approved",
+    };
+
+    setVehicles((prev) => [newVehicle, ...prev]);
+    setVehicleNumber("");
+    setShowModal(false);
+  };
 
   return (
     <AppContext.Provider
@@ -20,6 +51,8 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         setShowModal,
         vehicleNumber,
         setVehicleNumber,
+        vehicles,
+        addVehicle,
       }}
     >
       {children}
@@ -29,6 +62,6 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 
 export const useAppContext = () => {
   const context = useContext(AppContext);
-  if (!context) throw new Error("useAppContext must be used within AppProvider");
+  if (!context) throw new Error("AppContext not found");
   return context;
 };
