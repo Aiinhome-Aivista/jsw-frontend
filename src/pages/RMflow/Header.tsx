@@ -6,6 +6,9 @@ import VectorHader from "../../assets/VectorHader.png";
 import RefreshIcon from "../../assets/refresh.png";
 import { useAppContext } from "../../context/AppContext";
 import AddVehicleModal from "../../components/modals/RM/AddVehicleModal";
+import Button from '@mui/material/Button';
+import UnloadingSlipModal from "@/components/modals/RM/UnloadingSlipModal";
+
 
 const Header = () => {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -19,6 +22,8 @@ const Header = () => {
     const handleClose = () => {
         setAnchorEl(null);
     };
+    const [showUnloadingModal, setShowUnloadingModal] = React.useState(false);
+
 
     return (
         <div
@@ -126,6 +131,17 @@ const Header = () => {
                             onClick={() => window.location.reload()}
                         />
                     </div>
+                     <UnloadingSlipModal
+                open={showUnloadingModal}
+                onClose={() => setShowUnloadingModal(false)}
+            />
+                    <Button
+                        variant="contained"
+                        onClick={() => setShowUnloadingModal(true)}
+                        className="!bg-[#D48625] hover:!bg-[#D48625]/80 !px-5 !py-2 !rounded-lg !text-sm !text-white !normal-case !shadow-none"
+                    >
+                        Fill Slip
+                    </Button>
 
                     <button
                         onClick={() => setShowModal(true)}
