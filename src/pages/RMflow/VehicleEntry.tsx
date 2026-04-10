@@ -1,7 +1,6 @@
 import Header from "./Header";
 import AddVehicleModal from "../../components/modals/RM/AddVehicleModal";
 import VehicleTable from "./VehicleTable";
-// MUI
 
 const VehicleEntry = () => {
 
@@ -10,9 +9,7 @@ const VehicleEntry = () => {
             <Header />
             <AddVehicleModal />
 
-
             <div className="px-6 -mt-12">
-
                 {/*TABLE COMPONENT */}
                 <VehicleTable />
             </div>

@@ -10,7 +10,7 @@ const VehicleTable = () => {
     return (
         <div className="bg-white rounded-t-2xl shadow-xl overflow-hidden">
             <table className="w-full text-sm text-gray-800">
-                <thead className="bg-[#f1f3f5] text-gray-700 text-sm uppercase">
+                <thead className="bg-[#FFF8F0] text-gray-700 text-sm uppercase">
                     <tr>
                         <th className="px-6 py-4 text-left">Vehicle Number</th>
                         <th className="px-6 py-4 text-left">LECI Number</th>

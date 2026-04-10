@@ -16,7 +16,7 @@ const AddVehicleModal = () => {
 
   return (
     <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-      
+
       <div className="bg-white w-[420px] rounded-xl shadow-xl p-5">
 
         {/* HEADER */}
@@ -77,7 +77,7 @@ const AddVehicleModal = () => {
         <div className="flex justify-end">
           <button
             onClick={addVehicle}
-            className="bg-orange-500 hover:bg-orange-600 text-white px-5 py-2 rounded-md text-sm"
+            className="!bg-[#D48625] hover:!bg-[#D48625]/80 !px-5 !py-2 !rounded-lg !text-sm !text-white !normal-case !shadow-none"
           >
             Add
           </button>
