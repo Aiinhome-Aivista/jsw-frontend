@@ -2,7 +2,7 @@ import React from "react";
 import { AppBar, Toolbar, Box, Typography, Avatar, Menu, MenuItem } from "@mui/material";
 import { ChevronDown, LogOut } from "lucide-react";
 import JSLLogo from "../../assets/JSL-Black-1 1.png";
-import VectorHader from "../../assets/VectorHader.png";
+import vectorHeaderImage from "../../assets/VectorHader.png";
 import RefreshIcon from "../../assets/refresh.png";
 import { useAppContext } from "../../context/AppContext";
 import AddVehicleModal from "../../components/modals/RM/AddVehicleModal";
@@ -28,10 +28,7 @@ const Header = () => {
     return (
         <div
             style={{
-                backgroundImage: `
-          linear-gradient(to right, rgba(29,29,29,0.9), rgba(42,42,42,0.9)),
-          url(${VectorHader})
-        `,
+                backgroundImage: `url(${vectorHeaderImage}), linear-gradient(180deg, #1D1D1D 0%, #2A2A2A 100%)`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
