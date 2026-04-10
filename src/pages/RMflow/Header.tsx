@@ -3,15 +3,12 @@ import { AppBar, Toolbar, Box, Typography, Avatar, Menu, MenuItem } from "@mui/m
 import { ChevronDown, LogOut } from "lucide-react";
 import JSLLogo from "../../assets/JSL-Black-1 1.png";
 import vectorHeaderImage from "../../assets/VectorHader.png";
-import RefreshIcon from "../../assets/refresh.png";
-import { useAppContext } from "../../context/AppContext";
 import AddVehicleModal from "../../components/modals/RM/AddVehicleModal";
 
 
 const Header = () => {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
-    const { setShowModal } = useAppContext();
 
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
@@ -111,36 +108,7 @@ const Header = () => {
 
 
                 </Toolbar>
-                <Box sx={{ display: "flex", justifyContent: "space-between", px: 3, py: 0.5 }}>
-                    <div className="flex items-center gap-3">
-                        <Typography sx={{ color: "rgba(255, 255, 255, 1)", fontWeight: 700, fontSize: "25px" }}>
-                            Vehicle Entry (Gate 2-Window 1)
-                        </Typography>
 
-                        {/* Refresh Button */}
-                        <img
-                            src={RefreshIcon}
-                            alt="refresh"
-                            className="w-6 h-6 cursor-pointer hover:rotate-180 transition-transform duration-300"
-                            onClick={() => window.location.reload()}
-                        />
-                    </div>
-                   
-                   
-
-                    <button
-                        onClick={() => setShowModal(true)}
-                        className="!bg-[#D48625] hover:!bg-[#D48625]/80 !px-5 !py-2 !rounded-lg !text-sm !text-white !normal-case !shadow-none"
-                        style={{
-                            backgroundColor: "rgba(212, 134, 37, 1)",
-                            color: "rgba(255, 255, 255, 1)",
-                            fontWeight: 500,
-                            fontSize: "15px",
-                        }}
-                    >
-                        Add Vehicle
-                    </button>
-                </Box>
             </AppBar>
 
             {/* Dropdown */}
