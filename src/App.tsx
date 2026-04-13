@@ -5,6 +5,8 @@ import "./css/App.css";
 import ChargingStation from "./pages/SMSflow/ChargingStation";
 import { useState } from "react";
 import VehicleEntry from "./pages/RMflow/VehicleEntry";
+import SecurityInspection from "./pages/RMflow/SecurityInspection";
+
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
@@ -37,14 +39,16 @@ function App() {
         <ChargingStation />
       </Box> */}
 
-       <Box
+       {/* <Box
         component="main"
         sx={{
           flexGrow: 1,
         }}
       >
         <VehicleEntry />
-      </Box>
+      </Box> */}
+      <SecurityInspection/>
+
     </Box>
   );
 }
